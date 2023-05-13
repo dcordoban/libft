@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 19:33:21 by david             #+#    #+#             */
-/*   Updated: 2023/05/12 22:23:50 by david            ###   ########.fr       */
+/*   Updated: 2023/05/13 17:21:56 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 			substring[i++] = s[start++];
 		substring[i] = '\0';
 		return (substring);
+		free(substring);
 	}
 	return (0);
 }
