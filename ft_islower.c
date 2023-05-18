@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcordoba <dcordoba@student.42barcel>       +#+  +:+       +#+        */
+/*   By: dcordoba <dcordoba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 15:04:08 by dcordoba          #+#    #+#             */
-/*   Updated: 2023/03/02 12:02:09 by dcordoba         ###   ########.fr       */
+/*   Updated: 2023/05/18 19:00:29 by dcordoba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
 
 int	ft_islower(int c)
 {

@@ -6,7 +6,7 @@
 #    By: dcordoba <dcordoba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/01 23:22:51 by dcordoba          #+#    #+#              #
-#    Updated: 2023/05/17 19:16:24 by dcordoba         ###   ########.fr        #
+#    Updated: 2023/05/18 21:52:42 by dcordoba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ SRCS = ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_isalnum.c \
 CFLAGS = -Wall -Werror -Wextra
 DEPS = libft.h
 OBJECTS = $(SRCS:.c=.o)
-
-.PHONY: clean
+BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c
+BONUS_OBJ = $(BONUS:.c=.o)
 
 all: $(NAME)
 
@@ -32,12 +32,19 @@ $(NAME): $(SRCS) $(DEPS)
 	ar -rc $(NAME) $(OBJECTS)
 	ranlib $(NAME)
 
-
-fclean: clean
-	rm -f $(NAME)
+bonus: $(BONUS) $(DEPS)
+	$(CC) $(CFLAGS) $(DEPS) -c $(BONUS)
+	ar -rc $(NAME) $(BONUS_OBJ)
+	ranlib $(NAME)
 
 clean:
-	rm -f $(OBJECTS)
+	/bin/rm -f $(OBJECTS) $(BONUS_OBJ)
+
+fclean: clean
+	/bin/rm -f $(NAME)
 
 re: fclean all
 
+rebonus: fclean bonus
+
+.PHONY: all clean fclean re bonus rebonus

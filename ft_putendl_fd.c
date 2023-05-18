@@ -6,7 +6,7 @@
 /*   By: dcordoba <dcordoba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 18:30:02 by dcordoba          #+#    #+#             */
-/*   Updated: 2023/05/17 19:12:31 by dcordoba         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:28:30 by dcordoba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putendl_fd(char *s, int fd)
 	i = 0;
 	while (s[i])
 	{
-		write (fd, &s[i], 1);	
+		write (fd, &s[i], 1);
 		i++;
 	}
 	write (fd, "\n", 1);

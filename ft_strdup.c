@@ -6,7 +6,7 @@
 /*   By: dcordoba <dcordoba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 18:41:38 by david             #+#    #+#             */
-/*   Updated: 2023/05/17 17:02:00 by dcordoba         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:43:43 by dcordoba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ char	*ft_strdup(const char *s)
 	{
 		ft_memcpy(s_copy, s, s_len);
 		return (s_copy);
-		free(s_copy);
 	}
 	return (0);
 }

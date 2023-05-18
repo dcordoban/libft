@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcordoba <dcordoba@student.42barcel>       +#+  +:+       +#+        */
+/*   By: dcordoba <dcordoba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 15:04:08 by dcordoba          #+#    #+#             */
-/*   Updated: 2023/05/07 13:40:23 by dcordoba         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:59:36 by dcordoba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
 
 static int	ft_isspace(char c)
 {

@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcordoba <dcordoba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/28 15:04:08 by dcordoba          #+#    #+#             */
-/*   Updated: 2023/05/18 18:54:34 by dcordoba         ###   ########.fr       */
+/*   Created: 2023/05/18 19:39:01 by dcordoba          #+#    #+#             */
+/*   Updated: 2023/05/18 21:14:09 by dcordoba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	i;
-	char	*start;
-
-	start = s;
-	i = 0;
-	while (i < n)
-	{
-		start[i] = c;
-		i++;
-	}
-	return (start);
+	new->next = *lst;
+	*lst = new;
 }

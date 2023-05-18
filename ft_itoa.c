@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcordoba <dcordoba@student.42barcelona.com +#+  +:+       +#+        */
+/*   By: dcordoba <dcordoba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:59:57 by david             #+#    #+#             */
-/*   Updated: 2023/05/16 23:32:22 by dcordoba         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:52:04 by dcordoba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_decimal_to_ascii(long nb, char *string, int digits)
+static char	*ft_decimal_to_ascii(long nb, char *string, int digits)
 {
 	int	mod;
 	int	slots;
@@ -30,7 +30,7 @@ char	*ft_decimal_to_ascii(long nb, char *string, int digits)
 	return (string);
 }
 
-int	count_digits(int b)
+static int	count_digits(int b)
 {
 	size_t	counter;
 

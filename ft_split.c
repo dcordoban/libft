@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dcordoba <dcordoba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 20:47:05 by david             #+#    #+#             */
-/*   Updated: 2023/05/16 16:54:24 by david            ###   ########.fr       */
+/*   Updated: 2023/05/18 18:55:43 by dcordoba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	ft_free_mem_all(char **container, int index)
 	free(container);
 }
 
-char	**ft_fill_container(char const *s, char c, char **container, int k)
+static char	**ft_fill_container(char const *s, char c, char **container, int k)
 {
 	int	i;
 	int	split_start;
