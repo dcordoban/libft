@@ -6,12 +6,18 @@
 #    By: dcordoba <dcordoba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/01 23:22:51 by dcordoba          #+#    #+#              #
-#    Updated: 2023/05/18 21:52:42 by dcordoba         ###   ########.fr        #
+#    Updated: 2023/05/19 18:52:22 by dcordoba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NC = \033[39m
+AZUL = \033[36m
+ROJO = \033[31m
+MAGENTA = \033[35m
+
 CC = cc
 NAME = libft.a
+NAME_BONUS = .bonus 
 SRCS = ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_isalnum.c \
 		ft_strlen.c ft_strlcpy.c ft_strncmp.c ft_strlcat.c ft_strchr.c ft_strrchr.c \
 		ft_strnstr.c ft_tolower.c ft_toupper.c ft_atoi.c ft_memset.c \
@@ -27,24 +33,32 @@ BONUS_OBJ = $(BONUS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(SRCS) $(DEPS)
-	$(CC) $(CFLAGS) $(DEPS) -c $(SRCS)
-	ar -rc $(NAME) $(OBJECTS)
-	ranlib $(NAME)
+$(NAME): $(OBJECTS)
+	@echo "$(MAGENTA)Linkeando 🚲\n $(NC)$^\n"
+	@ar rcs $(NAME) $^
+	
+%.o: %.c $(DEPS)
+	@$(CC) $(CFLAGS) -c $< -o $@ -I.
+	@echo "$(AZUL)Compilando ⚽$(NC) $< -> $@"
 
-bonus: $(BONUS) $(DEPS)
-	$(CC) $(CFLAGS) $(DEPS) -c $(BONUS)
-	ar -rc $(NAME) $(BONUS_OBJ)
-	ranlib $(NAME)
+	
+bonus: $(NAME_BONUS) 
+	
+$(NAME_BONUS): $(BONUS_OBJ) $(OBJECTS)
+	ar rcs $(NAME) $^ 
+	@echo "$(MAGENTA)Linkenado bonus..\n$(NC)$^"
+	@touch .bonus
 
 clean:
-	/bin/rm -f $(OBJECTS) $(BONUS_OBJ)
+	@/bin/rm -f $(OBJECTS) $(BONUS_OBJ)
+	@echo "$(ROJO)Borrando objetos... $(NC)\n$(OBJECTS) $(BONUS_OBJ)\n"
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME) $(NAME_BONUS)
+	@echo "$(ROJO)Borrando libreria... $(NC)\n$(NAME)\n"
 
 re: fclean all
 
 rebonus: fclean bonus
 
-.PHONY: all clean fclean re bonus rebonus
+.PHONY: all clean fclean re rebonus
