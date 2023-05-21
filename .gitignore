@@ -1,6 +1,6 @@
 # Para c
 a.out
-.*.swp
+*.swp
 
 # Prerequisites
 *.d
@@ -58,3 +58,4 @@ dkms.conf
 .vscode/settings.json
 .vscode/tasks.json
 src/
+./vscode

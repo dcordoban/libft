@@ -6,7 +6,7 @@
 #    By: dcordoba <dcordoba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/01 23:22:51 by dcordoba          #+#    #+#              #
-#    Updated: 2023/05/19 18:52:22 by dcordoba         ###   ########.fr        #
+#    Updated: 2023/05/21 11:57:06 by dcordoba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ MAGENTA = \033[35m
 
 CC = cc
 NAME = libft.a
-NAME_BONUS = .bonus 
+NAME_BONUS = .bonus
 SRCS = ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_isalnum.c \
 		ft_strlen.c ft_strlcpy.c ft_strncmp.c ft_strlcat.c ft_strchr.c ft_strrchr.c \
 		ft_strnstr.c ft_tolower.c ft_toupper.c ft_atoi.c ft_memset.c \
@@ -28,34 +28,35 @@ SRCS = ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_isalnum.c \
 CFLAGS = -Wall -Werror -Wextra
 DEPS = libft.h
 OBJECTS = $(SRCS:.c=.o)
-BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c
+BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 BONUS_OBJ = $(BONUS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	@echo "$(MAGENTA)Linkeando 🚲\n $(NC)$^\n"
+	@echo "$(MAGENTA)Linkeando 🔗\n $(NC)$^\n"
 	@ar rcs $(NAME) $^
-	
+
 %.o: %.c $(DEPS)
 	@$(CC) $(CFLAGS) -c $< -o $@ -I.
-	@echo "$(AZUL)Compilando ⚽$(NC) $< -> $@"
+	@echo "$(AZUL)Compilando 📂$(NC) $< -> $@"
 
-	
-bonus: $(NAME_BONUS) 
-	
+
+bonus: $(NAME_BONUS)
+
 $(NAME_BONUS): $(BONUS_OBJ) $(OBJECTS)
-	ar rcs $(NAME) $^ 
+	ar rcs $(NAME) $^
 	@echo "$(MAGENTA)Linkenado bonus..\n$(NC)$^"
 	@touch .bonus
 
 clean:
 	@/bin/rm -f $(OBJECTS) $(BONUS_OBJ)
-	@echo "$(ROJO)Borrando objetos... $(NC)\n$(OBJECTS) $(BONUS_OBJ)\n"
+	@echo "$(ROJO)Borrando objetos...🧹$(NC)\n$(OBJECTS) $(BONUS_OBJ)\n"
 
 fclean: clean
 	@/bin/rm -f $(NAME) $(NAME_BONUS)
-	@echo "$(ROJO)Borrando libreria... $(NC)\n$(NAME)\n"
+	@echo "$(ROJO)Borrando libreria...🧹$(NC)\n$(NAME)\n"
 
 re: fclean all
 
