@@ -47,7 +47,7 @@ $(NAME): $(OBJECTS)
 	$(info 🗃️ Packing $(NAME) done!)
 	
 bonus: $(BONUS_OBJ)
-	@ar rcs $(NAME) $^
+	@ar rcs $@ $(BONUS_OBJ)
 	$(info 🗃️ Packing bonus done!)
 -include $(DEPS_BONUS)
 
